@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+          function loadDoc() {
+            const xhttp = new XMLHttpRequest();
+            //gestione risposta
+            xhttp.onload = function() {
+              document.getElementById("jsondemo").innerHTML = this.responseText;
+              //effettuo il parsing della risposta
+              let dati=JSON.parse(this.responseText); 
+              //inserisco i dati nell'interfaccia
+              let text = "<table border='1'><tr><th>Titolo</th><th>Autore</th><th>ISBN</th><th>Quantita'</th><th>Operazioni</th></tr>"
+              for (let x in dati) {
+              text += "<tr><td>" + dati[x].Titolo + "</td>";
+                text += "<td>" + dati[x].Autore + "</td>";
+                text += "<td>" + dati[x].ISBN + "</td>";
+                text += "<td>" + dati[x].quantita + "</td>";
+                text += "<td> <button type='button' onclick='elimina("+dati[x].ISBN+")'>Elimina</button></td>";
+                text += "</tr>";
+              }
+              text += "</table>"
+              document.getElementById("demo").innerHTML = text;
+            }
+            //preparo l'URL
+            xhttp.open("GET", "api/book/all");
+            //popolo l'intestazione
+            xhttp.setRequestHeader("accept","application/json");
+            //richiamo l'URL
+            xhttp.send();
+            //https://reqbin.com/req/javascript/cvy4trgb/delete-request-example
+          }
+
+function elimina(x){
+  const xhttp = new XMLHttpRequest();
+  let url = "api/book/delete/"
+  xhttp.open("DELETE", url+x, true);
+  xhttp.setRequestHeader("accept","application/json");
+  loadDoc();
+}
+</script>
+    </head>
+<body>
+
+<h2>The XMLHttpRequest Object</h2>
+<button type="button" onclick="loadDoc()">Request data</button>
+
+<p id="jsondemo"></p>
+<p id="demo"></p>
+</body>
+</html>

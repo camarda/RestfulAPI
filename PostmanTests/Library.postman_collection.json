@@ -1,0 +1,127 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Library",
+		"_postman_id": "1596e9b5-d357-2927-8aff-e1622e253613",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/api/addbook",
+			"request": {
+				"url": "http://localhost:8080/api/book/add",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ISBN",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Autore",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Titolo",
+							"value": "",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/book/update",
+			"request": {
+				"url": "http://localhost:8080/api/book/update",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ISBN",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Titolo",
+							"value": "",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Autore",
+							"value": "",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/book/delete",
+			"request": {
+				"url": "http://localhost:8080/api/book/delete",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "ISBN",
+							"value": "",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/api/book/all",
+			"request": {
+				"url": "http://localhost:8080/api/book/all",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
